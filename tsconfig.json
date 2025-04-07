@@ -1,0 +1,17 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "include": [],
+  "references": [
+    { "path": "./packages/core" },
+    { "path": "./packages/infrastructure" },
+    { "path": "./packages/shared" },
+    { "path": "./packages/ui" }
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@cv-generator/*": ["packages/*/src"]
+    }
+  }
+} 

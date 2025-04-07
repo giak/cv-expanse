@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "exclude": ["node_modules", "dist"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "jsx": "preserve",
+    "moduleResolution": "bundler"
+  },
+  "references": [
+    { "path": "../core" },
+    { "path": "../shared" },
+    { "path": "../infrastructure" }
+  ]
+} 

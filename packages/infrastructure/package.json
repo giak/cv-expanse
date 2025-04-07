@@ -1,0 +1,6 @@
+{
+  "name": "@cv-generator/infrastructure",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module"
+} 

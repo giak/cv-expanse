@@ -1,0 +1,10 @@
+.cursor/
+.specstory/
+node_modules/
+.DS_Store
+.vscode/
+.idea/
+.env
+.env.local
+
+source/

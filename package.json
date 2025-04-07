@@ -1,0 +1,104 @@
+{
+  "name": "@cv-generator/root",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "author": {
+    "name": "giak",
+    "url": "https://github.com/giak"
+  },
+  "description": "Modern CV builder with JSON Resume support",
+  "homepage": "https://github.com/giak/cv-generator#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giak/cv-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/giak/cv-generator/issues"
+  },
+  "keywords": [
+    "cv",
+    "resume",
+    "json-resume",
+    "vue",
+    "typescript"
+  ],
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm -C packages/ui dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:e2e": "pnpm -C packages/ui test:e2e",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "format": "biome format .",
+    "format:fix": "biome format --write .",
+    "clean": "pnpm -r clean",
+    "typecheck": "pnpm -r exec tsc --noEmit",
+    "prepare": "husky",
+    "check-changelog": "node scripts/check-changelog.js",
+    "update-changelog": "scripts/update-changelog.sh",
+    "open-changelog": "node scripts/open-changelog.js",
+    "manual-update-changelog": "node scripts/manual-changelog-update.js",
+    "test-pre-commit": "node scripts/test-pre-commit.js",
+    "docker:start": "./start.sh",
+    "docker:start:dev": "./start.sh development",
+    "docker:test": "./test-docker.sh unit",
+    "docker:test:e2e": "./test-docker.sh e2e",
+    "docker:test:all": "./test-docker.sh all true",
+    "docker:clean": "./docker-cleanup.sh",
+    "docker:clean:full": "./docker-cleanup.sh full",
+    "docker:setup": "chmod +x dev-environment.sh && ./dev-environment.sh",
+    "docker:build": "docker-compose build",
+    "docker:logs": "docker-compose logs -f",
+    "docker:ps": "docker-compose ps",
+    "docker:stop": "docker-compose down",
+    "docker:restart": "docker-compose restart",
+    "docker:health": "./docker-healthcheck.sh",
+    "i18n:guardian": "node scripts/i18n-guardian.js",
+    "i18n:backup": "node -e \"const fs=require('fs');const path=require('path');const dir='packages/ui/src/i18n/locales/backups/'+new Date().toISOString().replace(/:/g,'-');fs.mkdirSync(dir,{recursive:true});['en','fr'].forEach(l=>fs.copyFileSync('packages/ui/src/i18n/locales/'+l+'.json',path.join(dir,l+'.json')));\"",
+    "cursor:cache-explore": "node scripts/cursor-cache-explorer.js",
+    "cursor:cache-quick": "node scripts/cursor-cache-explorer.js quick",
+    "cursor:cache-monitor": "node scripts/cursor-cache-explorer.js monitor",
+    "cursor:extract-prompts": "node scripts/cursor-cache-explorer.js extract"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@commitlint/types": "^19.8.0",
+    "@types/node": "^22.14.0",
+    "@types/uuid": "^10.0.0",
+    "@vitest/coverage-v8": "3.0.7",
+    "@vue/tsconfig": "^0.5.1",
+    "chalk": "^5.4.1",
+    "glob": "^10.4.5",
+    "husky": "^9.1.7",
+    "typescript": "~5.7.3",
+    "vite": "^6.2.5",
+    "vitest": "^3.1.1"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild",
+      "puppeteer",
+      "vue-demi"
+    ],
+    "onlyBuiltDependencies": [
+      "@biomejs/biome"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "biome check --apply",
+      "biome format --write",
+      "vitest related --run",
+      "pnpm check-changelog"
+    ]
+  },
+  "dependencies": {
+    "uuid": "^11.1.0"
+  },
+  "packageManager": "pnpm@10.5.2"
+}

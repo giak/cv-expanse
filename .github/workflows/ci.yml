@@ -1,0 +1,57 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main # Ou master selon votre branche principale
+    paths:
+      - 'packages/**'
+      - '.github/workflows/ci.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+  pull_request:
+    branches:
+      - main # Ou master
+    paths:
+      - 'packages/**'
+      - '.github/workflows/ci.yml'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - 'tsconfig.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build, Lint & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest # Ou une version spécifique si nécessaire
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Ou la version LTS actuelle/souhaitée
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile # Utilise le lockfile pour la CI
+
+      - name: Lint code
+        run: pnpm run lint # Placeholder - nécessite le script "lint" à la racine
+
+      - name: Run tests
+        run: pnpm run test # Placeholder - nécessite le script "test" à la racine
+
+      - name: Build packages
+        run: pnpm run build # Placeholder - nécessite le script "build" à la racine 

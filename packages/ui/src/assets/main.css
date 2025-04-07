@@ -1,0 +1,242 @@
+@import "tailwindcss";
+
+@theme {
+  /* Définition des Design Tokens v4 */
+
+  /* Polices */
+  --font-sans: 'InterTight', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: 'FiraCode', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Palette de couleurs primaires (Cyan) */
+  --color-primary-50: 236, 254, 255;
+  --color-primary-100: 207, 250, 254;
+  --color-primary-200: 165, 243, 252;
+  --color-primary-300: 103, 232, 249;
+  --color-primary-400: 34, 211, 238;
+  --color-primary-500: 6, 182, 212;
+  --color-primary-600: 8, 145, 178;
+  --color-primary-700: 14, 116, 144;
+  --color-primary-800: 21, 94, 117;
+  --color-primary-900: 22, 78, 99;
+  --color-primary-950: 8, 51, 68;
+
+  /* Couleurs neutres (Gray) */
+  --color-neutral-50: 249, 250, 251;
+  --color-neutral-100: 243, 244, 246;
+  --color-neutral-200: 229, 231, 235;
+  --color-neutral-300: 209, 213, 219;
+  --color-neutral-400: 156, 163, 175;
+  --color-neutral-500: 107, 114, 128;
+  --color-neutral-600: 75, 85, 99;
+  --color-neutral-700: 55, 65, 81;
+  --color-neutral-800: 31, 41, 55;
+  --color-neutral-900: 17, 24, 39;
+  --color-neutral-950: 8, 12, 24; /* Adjusted from original for darker dark theme */
+
+  /* Couleurs Success (Green) */
+  --color-success-50: 240, 253, 244;
+  --color-success-100: 220, 252, 231;
+  --color-success-200: 187, 247, 208;
+  --color-success-300: 134, 239, 172;
+  --color-success-400: 74, 222, 128;
+  --color-success-500: 34, 197, 94;
+  --color-success-600: 22, 163, 74;
+  --color-success-700: 21, 128, 61;
+  --color-success-800: 22, 101, 52;
+  --color-success-900: 20, 83, 45;
+  --color-success-950: 5, 46, 22;
+
+  /* Couleurs Warning (Yellow) */
+  --color-warning-50: 254, 252, 232;
+  --color-warning-100: 254, 249, 195;
+  --color-warning-200: 254, 240, 138;
+  --color-warning-300: 253, 224, 71;
+  --color-warning-400: 250, 204, 21;
+  --color-warning-500: 234, 179, 8;
+  --color-warning-600: 202, 138, 4;
+  --color-warning-700: 161, 98, 7;
+  --color-warning-800: 133, 77, 14;
+  --color-warning-900: 113, 63, 18;
+  --color-warning-950: 54, 29, 10;
+
+  /* Couleurs Error (Red) */
+  --color-error-50: 254, 242, 242;
+  --color-error-100: 254, 226, 226;
+  --color-error-200: 254, 202, 202;
+  --color-error-300: 252, 165, 165;
+  --color-error-400: 248, 113, 113;
+  --color-error-500: 239, 68, 68;
+  --color-error-600: 220, 38, 38;
+  --color-error-700: 185, 28, 28;
+  --color-error-800: 153, 27, 27;
+  --color-error-900: 127, 29, 29;
+  --color-error-950: 69, 10, 10;
+
+  /* Couleurs Info (Blue) */
+  --color-info-50: 239, 246, 255;
+  --color-info-100: 219, 234, 254;
+  --color-info-200: 191, 219, 254;
+  --color-info-300: 147, 197, 253;
+  --color-info-400: 96, 165, 250;
+  --color-info-500: 59, 130, 246;
+  --color-info-600: 37, 99, 235;
+  --color-info-700: 29, 78, 216;
+  --color-info-800: 30, 64, 175;
+  --color-info-900: 30, 58, 138;
+  --color-info-950: 23, 37, 84;
+
+  /* Rayons de bordure */
+  --radius-xs:   0.125rem;  /* 2px */
+  --radius-sm:   0.25rem;   /* 4px - Adjusted from original for consistency */
+  --radius-md:   0.375rem;  /* 6px */
+  --radius-lg:   0.5rem;    /* 8px */
+  --radius-xl:   0.75rem;   /* 12px */
+  --radius-full: 9999px;
+
+  /* Z-index */
+  --z-index-dropdown: 1000;
+  --z-index-sticky:   1100;
+  --z-index-fixed:    1200;
+  --z-index-modal:    1300;
+  --z-index-popover:  1400;
+  --z-index-tooltip:  1500;
+
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-base: 250ms;
+  --transition-slow: 350ms;
+
+  /* Autres tokens si nécessaires (spacing, shadows, etc.) */
+  /* L'échelle d'espacement de Tailwind est généralement suffisante */
+}
+
+/* Basic Reset and Global Styles */
+
+@layer base {
+  /* Font Face Declarations */
+  @font-face {
+    font-family: 'InterTight';
+    font-style: normal;
+    font-weight: 100 900; /* Variable font weight range */
+    font-display: swap;
+    src: url('./fonts/InterTight-Regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'InterTight';
+    font-style: italic;
+    font-weight: 100 900; /* Variable font weight range */
+    font-display: swap;
+    src: url('./fonts/InterTight-Italic.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'FiraCode';
+    font-style: normal;
+    font-weight: 300 700; /* Variable font weight range */
+    font-display: swap;
+    src: url('./fonts/FiraCode-VF.woff2') format('woff2-variations');
+    /* Note: Consider adding ttf fallback if needed for older browsers */
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-body);
+    transition: color var(--transition-normal), background-color var(--transition-normal);
+  }
+
+  #app {
+    min-height: 100vh;
+  }
+
+  a {
+    color: var(--color-primary-600);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  a:hover {
+    text-decoration: underline;
+    color: var(--color-primary-800);
+  }
+
+  button {
+    font-family: inherit;
+  }
+
+  /* Focus visible styles */
+  :focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-bg-body), 0 0 0 4px var(--color-primary-500);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-bg-secondary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-neutral-400);
+    border-radius: var(--border-radius-sm);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-neutral-500);
+  }
+
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-primary);
+    line-height: 1.2;
+    margin-bottom: 0.5em;
+    transition: color var(--transition-normal);
+  }
+  
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  h4 {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  /* Container for form buttons */
+  .add-button-container {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+/* Classes utilitaires supplémentaires */
+.text-balance {
+  text-wrap: balance;
+}
+
+.transition-standard {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-normal);
+}
+
+/* Add other global styles, variables, or imports here */ 

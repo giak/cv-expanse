@@ -1,0 +1,307 @@
+/* 
+ * Système de Thèmes - CV Generator
+ * Ce fichier définit les variables CSS pour les différents thèmes de l'application.
+ */
+
+/* Variables de base pour tous les thèmes */
+:root {
+  /* Polices */
+  --font-sans: 'InterTight', ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: 'FiraCode', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  
+  /* Transitions pour les changements de thème */
+  --transition-fast: 150ms;
+  --transition-normal: 250ms;
+  --transition-slow: 350ms;
+
+  /* Espacement et bordures communs */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
+  --border-width: 1px;
+  --border-width-focused: 2px;
+}
+
+/* Thème Clair (défaut) */
+:root, [data-theme="light"] {
+  /* Couleurs de surface */
+  --color-bg-body: #f8fafc;
+  --color-bg-card: #ffffff;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f1f5f9;
+  --color-bg-accent: #f0f9ff;
+
+  /* Couleurs de texte */
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #4b5563;
+  --color-text-tertiary: #6b7280;
+  --color-text-muted: #9ca3af;
+  --color-text-on-primary: #ffffff;
+  
+  /* Couleurs d'accentuation */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #082f49;
+  
+  /* Couleurs d'état */
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+  --color-error-950: #450a0a;
+  
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+  --color-success-950: #052e16;
+  
+  /* Couleurs neutres */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
+  --color-neutral-950: #020617;
+  
+  /* Couleurs de bordure */
+  --color-border-light: var(--color-neutral-200);
+  --color-border-normal: var(--color-neutral-300);
+  --color-border-dark: var(--color-neutral-400);
+  --color-border-input: var(--color-border-normal); /* Input border */
+  --color-border-input-focus: var(--color-primary-500); /* Input focus border */
+  --color-ring-focus: var(--color-primary-500); /* Input focus ring */
+
+  /* Input/Placeholder Colors */
+  --color-bg-input: var(--color-bg-card); /* Input background */
+  --color-text-input: var(--color-text-primary); /* Input text */
+  --color-text-placeholder: var(--color-neutral-400); /* Placeholder text */
+
+  /* Semantic State Colors */
+  --color-text-error: var(--color-error-700);
+  --color-text-success: var(--color-success-700);
+  --color-bg-error-subtle: var(--color-error-50);
+  --color-bg-success-subtle: var(--color-success-50);
+  
+  /* Ombres */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+/* Thème Sombre */
+[data-theme="dark"] {
+  /* Couleurs de surface */
+  --color-bg-body: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-bg-primary: #1e293b;
+  --color-bg-secondary: #334155;
+  --color-bg-accent: #082f49;
+  
+  /* Couleurs de texte */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-text-tertiary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-text-on-primary: #020617;
+  
+  /* Les couleurs d'accentuation (primary) restent les mêmes mais peuvent être ajustées si nécessaire */
+  --color-primary-50: #082f49;
+  --color-primary-100: #0c4a6e;
+  --color-primary-200: #075985;
+  --color-primary-300: #0369a1;
+  --color-primary-400: #0284c7;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #38bdf8;
+  --color-primary-700: #7dd3fc;
+  --color-primary-800: #bae6fd;
+  --color-primary-900: #e0f2fe;
+  --color-primary-950: #f0f9ff;
+  
+  /* Couleurs neutres - inversées pour le thème sombre */
+  --color-neutral-50: #020617;
+  --color-neutral-100: #0f172a;
+  --color-neutral-200: #1e293b;
+  --color-neutral-300: #334155;
+  --color-neutral-400: #475569;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #94a3b8;
+  --color-neutral-700: #cbd5e1;
+  --color-neutral-800: #e2e8f0;
+  --color-neutral-900: #f1f5f9;
+  --color-neutral-950: #f8fafc;
+  
+  /* Couleurs de bordure */
+  --color-border-light: var(--color-neutral-700);
+  --color-border-normal: var(--color-neutral-600);
+  --color-border-dark: var(--color-neutral-500);
+  --color-border-input: var(--color-border-normal); /* Input border */
+  --color-border-input-focus: var(--color-primary-500); /* Input focus border */
+  --color-ring-focus: var(--color-primary-500); /* Input focus ring */
+
+  /* Input/Placeholder Colors */
+  --color-bg-input: var(--color-neutral-700); /* Input background */
+  --color-text-input: var(--color-text-primary); /* Input text */
+  --color-text-placeholder: var(--color-neutral-500); /* Placeholder text */
+
+  /* Semantic State Colors */
+  --color-text-error: var(--color-error-400);
+  --color-text-success: var(--color-success-400);
+  --color-bg-error-subtle: color-mix(in srgb, var(--color-error-900) 30%, transparent);
+  --color-bg-success-subtle: color-mix(in srgb, var(--color-success-900) 30%, transparent);
+  
+  /* Ombres - plus prononcées en mode sombre */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.25);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+}
+
+/* Classes de commodité pour les composants utilisant ce système de thèmes */
+.bg-theme-primary {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.bg-theme-secondary {
+  background-color: var(--color-bg-secondary);
+  transition: background-color var(--transition-normal);
+}
+
+.bg-theme-card {
+  background-color: var(--color-bg-card);
+  transition: background-color var(--transition-normal);
+}
+
+.text-theme-primary {
+  color: var(--color-text-primary);
+  transition: color var(--transition-normal);
+}
+
+.text-theme-secondary {
+  color: var(--color-text-secondary);
+  transition: color var(--transition-normal);
+}
+
+.text-theme-tertiary {
+  color: var(--color-text-tertiary);
+  transition: color var(--transition-normal);
+}
+
+.text-primary-color {
+  color: var(--color-primary-500);
+  transition: color var(--transition-normal);
+}
+
+.border-theme {
+  border-color: var(--color-border-normal);
+  transition: border-color var(--transition-normal);
+}
+
+/* Styles de boutons secondaires (comme le bouton "Charger") */
+.theme-button {
+  border: 1px solid var(--color-primary-600);
+  color: var(--color-primary-600);
+  background-color: transparent;
+}
+
+.theme-button:hover {
+  background-color: var(--color-primary-50);
+  border-color: var(--color-primary-700);
+  color: var(--color-primary-700);
+}
+
+[data-theme="dark"] .theme-button {
+  border-color: var(--color-primary-500);
+  color: var(--color-primary-500);
+}
+
+[data-theme="dark"] .theme-button:hover {
+  background-color: var(--color-primary-900);
+  border-color: var(--color-primary-400);
+  color: var(--color-primary-400);
+}
+
+/* Variables RGB pour les opacités et manipulations de couleurs */
+:root {
+  --color-primary-500-rgb: 14, 165, 233; /* #0ea5e9 */
+  --color-error-500-rgb: 239, 68, 68;    /* #ef4444 */
+  --color-success-500-rgb: 34, 197, 94;  /* #22c55e */
+}
+
+[data-theme="dark"] {
+  --color-primary-500-rgb: 14, 165, 233; /* Garder la même valeur pour compatibilité */
+}
+
+/* Ajoutez d'autres classes utilitaires selon les besoins */ 
+
+/* ==========================================
+   CV Preview Theming Variables (Defaults)
+   ========================================== */
+:root {
+  /* Fonts */
+  --preview-font-body: var(--font-sans);
+  --preview-font-heading: var(--font-sans);
+  --preview-font-mono: var(--font-mono);
+
+  /* Base Colors (using existing neutrals/primaries for default classic theme) */
+  --preview-color-background: var(--color-white);       /* Page background */
+  --preview-color-text-primary: var(--color-neutral-800); /* Main text */
+  --preview-color-text-secondary: var(--color-neutral-600); /* Subtitles, less important text */
+  --preview-color-text-tertiary: var(--color-neutral-500);  /* Dates, subtle info */
+  --preview-color-primary: var(--color-primary-700);    /* Links, accents */
+  --preview-color-primary-hover: var(--color-primary-900);
+  --preview-color-border: var(--color-neutral-300);      /* Section borders */
+
+  /* Spacing */
+  --preview-spacing-xs: 0.25rem; /* 4px */
+  --preview-spacing-sm: 0.5rem;  /* 8px */
+  --preview-spacing-md: 1rem;    /* 16px */
+  --preview-spacing-lg: 1.5rem;  /* 24px */
+  --preview-spacing-xl: 2rem;    /* 32px */
+  --preview-section-spacing: var(--preview-spacing-lg); /* Default space between sections */
+
+  /* Font Sizes */
+  --preview-text-xs: 0.75rem;  /* 12px */
+  --preview-text-sm: 0.875rem; /* 14px */
+  --preview-text-base: 1rem;   /* 16px */
+  --preview-text-lg: 1.125rem; /* 18px */
+  --preview-text-xl: 1.25rem;  /* 20px */
+  --preview-text-2xl: 1.5rem;  /* 24px */
+  --preview-text-3xl: 1.875rem;/* 30px */
+
+  /* Radii */
+  --preview-radius-sm: var(--radius-sm);
+  --preview-radius-md: var(--radius-md);
+  --preview-radius-lg: var(--radius-lg);
+}
+
+/* ==========================================
+   Utility Classes (Keep existing ones) 
+   ========================================== */
+/* ... existing utility classes like .bg-theme-primary etc. ... */
